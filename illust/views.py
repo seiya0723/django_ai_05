@@ -45,6 +45,7 @@ index   = illustView.as_view()
 
 #LoginRequiredMixinでログイン状態をチェック、認証状態にあればアクセスを許可する。
 class uploadView(LoginRequiredMixin,View):
+#class uploadView(View):
 
     def get(self, request, *args, **kwargs):
 

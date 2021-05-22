@@ -1,7 +1,8 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'illust/css/style.css' %}">
 
 </head>
@@ -12,7 +13,6 @@
                 <div class="text">
                     <input type="text" name="title" placeholder="タイトル">
                 </div>
-
                 <textarea class="ui10-textarea_circle" cols="60" rows="10" name="description" placeholder="説明"></textarea>
                 <div>
                     <input type="file" name="file">
@@ -30,7 +30,11 @@
             <div>{{ design.date }}</div>
             <div>{{ design.description }}</div>
             <div><a href="/media/{{ design.file }}">ダウンロード</a></div>
-            <div><img src="/media/{{ design.thumbnail }}" alt="サムネイル" style="max-width:100%;"></div>
+            {% if design.thumbnail %}
+            <div><a href="/media/{{ design.file }}"><img src="/media/{{ design.thumbnail }}" alt="サムネイル" style="max-width:100%;"></a></div>
+            {% else %}
+            <div><a href="/media/{{ design.file }}"><img src="{% static 'illust/image/no-image.png' %}" alt="サムネイルがありません" style="max-width:100%;"></a></div>
+            {% endif %}
         </div>
         {% endfor %}
 

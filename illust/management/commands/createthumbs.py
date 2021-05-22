@@ -6,7 +6,6 @@ from ...models import Design
 from psd_tools import PSDImage
 from PIL import Image
 
-
 from pdf2image import convert_from_path
 #↑pip install pdf2imageでインストール
 
